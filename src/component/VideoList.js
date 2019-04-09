@@ -1,9 +1,12 @@
 import React from 'react';
+import VideoItem from './VideoItem';
 
 const VideoList = ({videos}) => {
-        console.log(videos)
+    const renderedList = videos.map(video => {
+        return <VideoItem video={video.snippet.title} key={video.id.videoId} />
+    })
     return (
-        <div>VideoList</div>
+        <div>{renderedList}</div>
     )
 }
 
