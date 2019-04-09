@@ -16,12 +16,16 @@ class App extends React.Component{
         this.setState({videos:response.data.items})
     }
 
+    selectedVideo = (video) => {
+        console.log(video)
+    }
+
     render(){
         return(
             <div className="ui container" style={{marginTop:'10px'}}>
                 <SearchBar onSearch = {this.searchTerm}/>
-                <VideoDetail />
-                <VideoList videos= {this.state.videos}/>
+                {/* <VideoDetail /> */}
+                <VideoList videos= {this.state.videos} onSelect={this.selectedVideo}/>
             </div>
         )
     }
