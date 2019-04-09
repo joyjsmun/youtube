@@ -5,7 +5,11 @@ import youtube from '../apis/youtube';
 class App extends React.Component{
 
     searchTerm = (term) => {
-        console.log(term);
+        youtube.get('/search',{
+            params:{
+                q: term
+            }
+        })
     }
 
     render(){
