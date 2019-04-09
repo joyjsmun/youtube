@@ -2,6 +2,7 @@ import React from 'react';
 import SearchBar from './SearchBar';
 import youtube from '../apis/youtube';
 import VideoList from './VideoList';
+import VideoDetail from './VideoDetail';
 
 class App extends React.Component{
     state= {videos:[]}
@@ -19,6 +20,7 @@ class App extends React.Component{
         return(
             <div className="ui container" style={{marginTop:'10px'}}>
                 <SearchBar onSearch = {this.searchTerm}/>
+                <VideoDetail />
                 <VideoList videos= {this.state.videos}/>
             </div>
         )
