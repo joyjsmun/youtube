@@ -5,7 +5,7 @@ import VideoList from './VideoList';
 import VideoDetail from './VideoDetail';
 
 class App extends React.Component{
-    state= {videos:[]}
+    state= {videos:[],selectedVideo:''}
 
     searchTerm = async term => {
         const response = await youtube.get('/search',{
@@ -17,14 +17,14 @@ class App extends React.Component{
     }
 
     selectedVideo = (video) => {
-        console.log(video)
+        this.setState({selectedVideo:video})
     }
 
     render(){
         return(
             <div className="ui container" style={{marginTop:'10px'}}>
                 <SearchBar onSearch = {this.searchTerm}/>
-                {/* <VideoDetail /> */}
+                <VideoDetail video={this.state.selectedVideo} />
                 <VideoList videos= {this.state.videos} onSelect={this.selectedVideo}/>
             </div>
         )
